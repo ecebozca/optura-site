@@ -1,0 +1,30 @@
+# Optura
+
+> Optura is a food-decision assistant (mobile app) for households. It helps people see what's in their kitchen, use food before it goes to waste, and make everyday "what should I cook with what I have?" decisions easier. Optura is currently in early access; the primary launch market is Spain.
+
+Key facts:
+
+- What it is: a mobile app that keeps a kitchen inventory and nudges you to use food on time.
+- Status: in development, with an early access list for product updates and beta testing invitations. Joining is free and does not commit you to a subscription.
+- Pricing: a free version for everyday food management is planned, with optional premium features. Final pricing will be shared closer to launch.
+- Website: https://opturaai.co
+
+## How Optura works
+
+1. Capture: snap your groceries or scan your grocery receipt. Optura recognises products and quantities and builds your inventory automatically, with an estimated consumption window for each item.
+2. Track: an always-updated inventory ranks items by urgency and sends at-risk alerts before food is likely to go to waste.
+3. Act: personalised recipe suggestions based on what needs to be used first and the ingredients already in your kitchen.
+4. Reward: earn points and build streaks for using food before it goes to waste, redeem points for offers from grocery and delivery partners, and see the food, money and CO2 you save over time.
+
+## Pages
+
+- [Home, for households](https://opturaai.co/): what Optura does, how it works, FAQ and the early access sign-up.
+- [For partners](https://opturaai.co/partners.html): collaborations with retailers, food brands, and research, education and impact organisations (rewards and engagement, research and pilot programs, product and technology integrations).
+- [Privacy policy](https://opturaai.co/privacy.html): how the early access email address and optional analytics are handled.
+
+## FAQ
+
+- What is Optura? A food-decision assistant designed to help you keep track of what's in your kitchen, use food before it goes to waste, and make everyday food decisions easier.
+- Do I have to add everything manually? No. Optura is designed to make adding groceries easier through photo and receipt scanning, and you can review and adjust your inventory.
+- How does Optura help me waste less? By helping you see what you already have, highlighting food that needs attention, and suggesting ways to use it before it goes to waste.
+- When can I use it? Optura is being built now. Join the early access list at https://opturaai.co/#waitlist to hear about testing opportunities.
