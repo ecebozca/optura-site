@@ -46,6 +46,8 @@ a:hover{color:var(--green-d)}
 .doc li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;background:var(--lime)}
 .doc strong{color:var(--ink);font-weight:800}
 .doc-note{margin-top:40px;padding:18px 22px;background:var(--card);border:1px solid var(--line);border-radius:14px;font-size:14.5px;line-height:1.6;color:var(--body)}
+.doc-btn{font:inherit;font-weight:700;font-size:15px;padding:10px 20px;border-radius:999px;border:1.6px solid var(--line);background:var(--card);color:inherit;cursor:pointer}
+.doc-btn:hover{border-color:currentColor}
 
 /* footer */
 .footer{background:var(--green);color:rgba(255,255,255,.72)}
@@ -55,6 +57,7 @@ a:hover{color:var(--green-d)}
 .footer-in span{font-size:13px}
 .footer-in a{color:rgba(255,255,255,.85)}
 </style>
+<script src="assets/analytics.js" defer></script>
 </head>
 <body>
 
@@ -68,7 +71,7 @@ a:hover{color:var(--green-d)}
 <main class="doc">
   <p class="doc-kicker">Privacy</p>
   <h1>Privacy Policy</h1>
-  <p class="doc-meta">Last updated: 20 October 2026</p>
+  <p class="doc-meta">Last updated: 19 November 2026</p>
   <p class="doc-intro">This policy explains how we handle the information you share with us when you join the Optura early access list on this website. Optura is an early-stage product operated by Ece Bozca. If you have any questions, email <a href="mailto:ece.bozca@gmail.com">ece.bozca@gmail.com</a>.</p>
 
   <h2>What we collect</h2>
@@ -87,10 +90,12 @@ a:hover{color:var(--green-d)}
 
   <h2>Who processes it</h2>
   <p>Our signup form is powered by <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree</a>, a third-party service that receives and stores form submissions on our behalf. Your email address is stored on Formspree's servers, which may be located outside the European Economic Area (for example, in the United States).</p>
-  <p>Web fonts on this site are served by Google Fonts. The site does not use advertising or analytics cookies.</p>
+  <p>Web fonts on this site are served by Google Fonts. If you accept analytics cookies, we use <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Analytics 4</a> (Google Ireland Ltd.) to measure visits, which pages are viewed, clicks on the “Join Waitlist” button and whether a sign-up succeeded. We do not send your email address to Google Analytics, and advertising features are turned off. Google may process this data outside the EEA.</p>
 
   <h2>Cookies</h2>
-  <p>This website uses only <strong>essential cookies</strong> needed for it to function, plus your saved cookie choice. We do not currently use analytics or advertising cookies. If we introduce analytics in the future, we'll ask for your consent first.</p>
+  <p>This website uses <strong>essential cookies</strong> needed for it to function, plus your saved cookie choice. With your consent, it also sets Google Analytics cookies (<code>_ga</code>, <code>_ga_*</code>, kept up to 13 months). Nothing is sent to Google Analytics until you press “Accept”, and we never use advertising cookies.</p>
+  <p><button type="button" id="ckReset" class="doc-btn">Change my cookie choice</button></p>
+  <script>document.getElementById('ckReset').addEventListener('click',function(){try{localStorage.removeItem('optura_cookie_consent');}catch(e){}document.cookie.split(';').forEach(function(c){var n=c.split('=')[0].trim();if(n.indexOf('_ga')===0){document.cookie=n+'=; Max-Age=0; path=/; domain='+location.hostname.replace(/^www\./,'.');document.cookie=n+'=; Max-Age=0; path=/';}});location.href='index.html';});</script>
 
   <h2>How long we keep it</h2>
   <p>We keep your email address until you ask us to remove it, or until the early access programme ends and the list is no longer needed.</p>
