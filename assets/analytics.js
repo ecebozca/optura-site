@@ -8,10 +8,10 @@
  *   data-track-location as the "location" parameter.
  * - Pages call window.opturaTrack(name, params) for form results.
  *
- * Set GA_ID to the property's Measurement ID (G-XXXXXXXXXX) to turn it on.
+ * GA_ID is the Measurement ID of the "Optura website" property (opturaai.co stream).
  */
 (function () {
-  var GA_ID = 'G-XXXXXXXXXX';
+  var GA_ID = 'G-0XGB838P5Q';
   var KEY = 'optura_cookie_consent';
   var enabled = /^G-[A-Z0-9]+$/.test(GA_ID) && GA_ID !== 'G-XXXXXXXXXX';
   var loaded = false;
@@ -35,6 +35,7 @@
     gtag('js', new Date());
     gtag('config', GA_ID, {
       allow_google_signals: false,
+      cookie_expires: 34214400, // 396 days (13 months)
       allow_ad_personalization_signals: false
     });
     var s = document.createElement('script');
