@@ -199,6 +199,7 @@ a{color:inherit;text-decoration:none}
   .pf-row{grid-template-columns:1fr}
 }
 </style>
+<script src="assets/analytics.js" defer></script>
 </head>
 <body>
 
@@ -211,7 +212,7 @@ a{color:inherit;text-decoration:none}
       <a href="#collaborate">Collaboration</a>
       <a href="#contact">Get in Touch</a>
     </nav>
-    <a class="nav-cta" href="#contact">Get in touch</a>
+    <a class="nav-cta" href="#contact" data-track="partner_cta_click" data-track-location="nav">Get in touch</a>
     <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -392,7 +393,7 @@ a{color:inherit;text-decoration:none}
           <h4>Product</h4>
           <a href="index.html#how">How it works</a>
           <a href="index.html#faq">FAQ</a>
-          <a href="index.html#waitlist">Join Waitlist</a>
+          <a href="index.html#waitlist" data-track="waitlist_cta_click" data-track-location="partners_footer">Join Waitlist</a>
         </div>
         <div class="footer-col">
           <h4>Partners</h4>
@@ -411,7 +412,7 @@ a{color:inherit;text-decoration:none}
 
 <!-- COOKIE -->
 <div class="cookie hide" id="cookie" role="dialog" aria-label="Cookie notice" aria-live="polite">
-  <p>Optura uses only essential cookies to make the site work. With your consent we may later add analytics to improve it. <a href="privacy.html">Privacy Policy</a></p>
+  <p>Optura uses essential cookies to make the site work. If you accept, we also use Google Analytics to count visits and sign-ups so we can improve the site. <a href="privacy.html">Privacy Policy</a></p>
   <div class="cookie-actions">
     <button class="cookie-btn cookie-decline" type="button" id="ckDecline">Decline</button>
     <button class="cookie-btn cookie-accept" type="button" id="ckAccept">Accept</button>
@@ -432,13 +433,13 @@ a{color:inherit;text-decoration:none}
       var name=val('pfName'), org=val('pfOrg'), email=val('pfEmail');
       if(!name||!org){m('Please add your name and organisation.','err');return;}
       if(!okmail(email)){m('Please enter a valid work email.','err');document.getElementById('pfEmail').focus();return;}
-      var data={name:name,organisation:org,email:email,interest:val('pfInterest'),message:val('pfMsg'),_subject:'Optura partner inquiry'};
+      var data={name:name,organisation:org,email:email,interest:val('pfInterest'),message:val('pfMsg'),_subject:'Optura partner inquiry',form:'partner'};
       if(!EP){m('Thanks! Your inquiry is ready to send once the form is connected.','note');return;}
       btn.disabled=true;m('Sending…','note');
       fetch(EP,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
         .then(function(r){if(!r.ok)throw 0;return r;})
-        .then(function(){form.reset();btn.disabled=false;m('Thanks! We’ve received your inquiry and will be in touch.','ok');})
-        .catch(function(){btn.disabled=false;m('Something went wrong. Please try again, or email ece.bozca@gmail.com.','err');});
+        .then(function(){form.reset();btn.disabled=false;m('Thanks! We’ve received your inquiry and will be in touch.','ok');window.opturaTrack&&opturaTrack('generate_lead',{form:'partner',interest:data.interest||''});})
+        .catch(function(){btn.disabled=false;window.opturaTrack&&opturaTrack('partner_error',{reason:'network'});m('Something went wrong. Please try again, or email ece.bozca@gmail.com.','err');});
     });
   }
   // cookie
@@ -448,7 +449,7 @@ a{color:inherit;text-decoration:none}
     try{ if(localStorage.getItem(KEY)){ el.remove(); return; } }catch(e){}
     setTimeout(function(){ el.classList.remove('hide'); }, 700);
     function choose(v){ try{ localStorage.setItem(KEY,v); }catch(e){} el.classList.add('hide'); }
-    document.getElementById('ckAccept').addEventListener('click',function(){ choose('accepted'); });
+    document.getElementById('ckAccept').addEventListener('click',function(){ choose('accepted'); document.dispatchEvent(new CustomEvent('optura:consent',{detail:'accepted'})); });
     document.getElementById('ckDecline').addEventListener('click',function(){ choose('declined'); });
   }
 })();
